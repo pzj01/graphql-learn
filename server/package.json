@@ -2,14 +2,17 @@
 	"name": "server",
 	"type": "module",
 	"scripts": {
-		"serve": "nodemon ./dist/index.js",
-		"dev": "tsup --watch",
+		"serve": "nodemon --watch 'src/**/*.ts' --ext 'ts' --exec 'pnpm dev'",
+		"dev": "node --loader ts-node/esm --no-warnings=ExperimentalWarning src/index.ts",
 		"build": "tsup"
 	},
 	"dependencies": {
 		"@apollo/server": "^4.11.0",
+		"@types/node": "^22.7.6",
 		"graphql": "^16.9.0",
 		"graphql-tag": "^2.12.6",
+		"ts-node": "^10.9.2",
+		"tslib": "^2.8.0",
 		"typescript": "^5.6.3"
 	},
 	"devDependencies": {
